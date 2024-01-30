@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std ; 
+
+int binsearch(int arr[], int s,int e,int target) {
+    if (s > e)
+    {
+        return -1;
+    }
+
+    int mid = s + (e-s)/2;
+
+    if (arr[mid]==target)
+    {
+        return mid;
+    }
+    if (arr[mid] < target)
+    {
+        return binsearch(arr,mid+1,e,target);
+
+    }
+    else {
+        return binsearch(arr,s,mid-1,target);001
+    }
+    
+    
+}
+
+int main () {
+    int arr[] = {10,20,30,40,50,60,70,80};
+    int size = 8;
+    int start = 0;
+    int end = size - 1;
+
+    int target = 80;
+
+    int foundindex = binsearch(arr,start,end,target);
+     
+     if (foundindex != -1) 
+     {
+        cout << "target found at: " << foundindex <<endl;
+     }
+
+     else {
+        cout << "target not found " << endl;
+     }
+     
+
+}
